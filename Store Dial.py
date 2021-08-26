@@ -22,8 +22,6 @@ label2 = tk.Label(root, text='Type store ID:')
 label2.config(font=('helvetica', 10))
 canvas1.create_window(50, 50, window=label2)
 
-storeID = None
-
 entry1 = tk.Entry (root, textvariable=storeID) 
 canvas1.create_window(160, 50, window=entry1)
 
@@ -33,7 +31,7 @@ canvas1.create_window(50, 85, window=label2)
 
 entry2 = tk.Entry (root, width=40) 
 canvas1.create_window(225, 85, window=entry2)
-#entry2.bind("<Key>", lambda e: "break")
+
 
 label3 = tk.Label(root, text='Address')
 label3.config(font=('helvetica', 10))
@@ -41,7 +39,7 @@ canvas1.create_window(50, 110, window=label3)
 
 entry3 = tk.Entry (root, width=40) 
 canvas1.create_window(225, 110, window=entry3)
-#entry3.bind("<Key>", lambda e: "break")
+
 
 label4 = tk.Label(root, text='Phone #')
 label4.config(font=('helvetica', 10))
@@ -49,7 +47,7 @@ canvas1.create_window(50, 135, window=label4)
 
 entry4 = tk.Entry (root, width=40) 
 canvas1.create_window(225, 135, window=entry4)
-#entry4.bind("<Key>", lambda e: "break")
+
 
 label5 = tk.Label(root, text='Email')
 label5.config(font=('helvetica', 10))
@@ -57,7 +55,7 @@ canvas1.create_window(50, 160, window=label5)
 
 entry5 = tk.Entry (root, width=40) 
 canvas1.create_window(225, 160, window=entry5)
-#entry5.bind("<Key>", lambda e: "break")
+
 
 label6 = tk.Label(root, text='Manager')
 label6.config(font=('helvetica', 10))
@@ -65,7 +63,7 @@ canvas1.create_window(50, 185, window=label6)
 
 entry6 = tk.Entry (root, width=40) 
 canvas1.create_window(225, 185, window=entry6)
-#entry6.bind("<Key>", lambda e: "break")
+
 
 #establishing the connection
 conn = mysql.connector.connect(
@@ -76,6 +74,7 @@ cursor = conn.cursor()
 global url
 url = " "
 number = None
+storeID = None
 
 def storeSearch(event=None):
     storeID = entry1.get()
@@ -100,7 +99,7 @@ def storeSearch(event=None):
 
     global url
     url = "http://[VOIP Phone IP]/servlet?key=number="+number
-    #print(url)
+
     print(len(storeID))
 def storeCall(event=None):
     global url
