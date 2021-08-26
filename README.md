@@ -11,3 +11,9 @@ Uses Tkinkter for a simple gui, connects to a SQL server hosting the Stores data
 Takes the tuple SQL response into variables and fills in apportiate text boxes. 
 
 When the enter key is pressed it will make a GET request to the VOIP phone and intiate a call to which ever store was searched.
+
+**Requirments**
+- Tkinter
+- win32gui, win32con
+- mysql.connector
+- requests
